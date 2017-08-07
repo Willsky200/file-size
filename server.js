@@ -4,7 +4,7 @@ const multer = require("multer");
 const upload = multer({ dest: "uploads/"});
 const bodyParser = require('body-parser');
 
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 app.post("/", upload.single("file"), (req, res, next) => {
 	return res.json(req.file.size);
-})
+});
 
 
 app.listen(port, () => {
