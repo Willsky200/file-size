@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", upload.single("file"), (req, res, next) => {
-	res.send(`Your file is ${req.body.file.size} bytes.`);
+	res.send(`Your file is ${req.file.size}`)
 });
 
 
